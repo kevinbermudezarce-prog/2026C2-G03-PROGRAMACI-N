@@ -1,7 +1,7 @@
 """Reto integrador: control de ingreso al Anfiteatro del CENAC.
 
-Nombre del estudiante: __________________________________________
-Fecha: ____________________
+Nombre del estudiante: Kevin Bermúdez Arce
+Fecha: 25/06/2026
 
 Contexto:
 El Anfiteatro del Centro Nacional de la Cultura (CENAC), en Costa Rica, tiene
