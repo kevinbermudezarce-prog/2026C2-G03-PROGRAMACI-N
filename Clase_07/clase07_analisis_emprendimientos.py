@@ -45,7 +45,7 @@ def imprimir_reporte(reporte):
 def calcular_clasificacion(porcentaje_logro):
     """"Clasifica el emprendimiento según porcentaje de cumplimiento de meta de ventas."""
     if porcentaje_logro >= 100:
-        clasificacion_emprendimiento = "Meta alcanzada, emprendimeinto rentable"
+        clasificacion_emprendimiento = "Meta alcanzada, emprendimiento rentable"
     elif porcentaje_logro >= 80:
         clasificacion_emprendimiento = "Observación, no se logró la meta."
     else:
@@ -55,8 +55,8 @@ def calcular_clasificacion(porcentaje_logro):
 
 reporte = []
 provincias = set()
-
-
+venta_mas_alta = 0
+emprendimientos_mas_ingresos = []
 
 
 #print("Cantidad de sedes: " ,len(sedes))
@@ -76,6 +76,7 @@ for emprendimiento in sedes:
     promedio_emprendimiento = calcular_porcentaje (total_emprendimiento , meta)
     promedio_diario = calcular_promedio (ventas)
     clasificacion = calcular_clasificacion (promedio_emprendimiento)
+
 
     provincias.add(emprendimiento["provincia"])
     
@@ -97,17 +98,30 @@ for emprendimiento in sedes:
             
         }
     )
+    
+    ranking []
+    
     imprimir_reporte(reporte)
     
+    if total_emprendimiento > venta_mas_alta:
+        venta_mas_alta = total_emprendimiento
+        emprendimientos_mas_ingresos = [emprendimiento ["nombre"]]
+    elif total_emprendimiento == venta_mas_alta:
+        emprendimientos_mas_ingresos.append(emprendimiento ["nombre"])
     
-venta_maxima = max(fila["total"] for fila in reporte)
+    
+    
+#venta_maxima = max(fila["total"] for fila in reporte)
 
 
 print ("\n Provincias analizadas: " ,provincias)
 
-for fila in reporte:
-    if fila["total"] == venta_maxima:
-        print(f"\n Sede con mayor cantidad de ventas: {fila['nombre']} con ₡{fila['total']:,.2f}")
+#for fila in reporte:
+#    if fila["total"] == venta_maxima:
+#        print(f"\n Sede con mayor cantidad de ventas: {fila['nombre']} con ₡{fila['total']:,.2f}")
+
+print ("La venta más alta es: ", venta_mas_alta, "El cual corresponde a: " ,emprendimientos_mas_ingresos)
+
 
 
 def obtener_total(fila):

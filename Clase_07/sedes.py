@@ -30,7 +30,7 @@ sedes = [
         "nombre": "Feria de Heredia",
         "provincia": "Heredia",
         "tipo": "Feria",
-        "ventas": [72000, 76000, 80000, 78000, 74000],
+        "ventas": [115000, 108000, 112000, 118000, 121000],
         "meta": 390000,
     },
     {
