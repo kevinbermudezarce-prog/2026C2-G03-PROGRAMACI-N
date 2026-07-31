@@ -40,13 +40,20 @@ def limpiar_datos(datos):
 
 def filtrar_diferencial_alto(datos):
     """Devuelve entidades coherentes con diferencial superior al promedio."""
-    # TODO 6: cree dos condiciones y combínelas con &:
-    # DIFERENCIAL superior al promedio y VENTA mayor que COMPRA.
-    return datos.iloc[0:0].copy()
+    promedio_diferencial = datos["DIFERENCIAL"].mean()
+    filtro = datos["DIFERENCIAL"] > promedio_diferencial
+    return datos[filtro]
 
-
-def resumir_por_tipo_entidad(datos):
-    """Resume compra, venta y diferencial para cada tipo de entidad."""
-    # TODO 7: agrupe por TIPO, calcule el promedio de COMPRA, VENTA y
-    # DIFERENCIAL, redondee y ordene por DIFERENCIAL.
-    return pd.DataFrame()
+def resumir_por_tipo_entidad(datos: pd.DataFrame) -> tuple[float, pd.DataFrame]:
+    """Devuelve el promedio general del diferencial y el promedio por tipo de entidad de compra, venta y diferencial."""
+    promedio_diferencial = datos["DIFERENCIAL"].mean()
+    
+    #Agrupa por tipo de entidad y calcula el promedio de compra, venta y diferencial
+    columnas = ["COMPRA", "VENTA", "DIFERENCIAL"]
+    promedios_por_tipo =(
+        datos.groupby("TIPO")[columnas]
+            .mean ()
+            .round(2)
+            .sort_values("DIFERENCIAL", ascending=False)
+        )
+    return (promedio_diferencial, promedios_por_tipo)
