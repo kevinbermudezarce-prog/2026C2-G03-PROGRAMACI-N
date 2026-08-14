@@ -39,8 +39,8 @@ def cargar_datos() -> pd.DataFrame:
         df = pd.read_csv(archivos_csv[0])
 
         print("\nDatos cargados correctamente.")
-        #return df
-        print (df.head())
+        return df
+
 
     except Exception as error:
         print("\nOcurrió un error:")
