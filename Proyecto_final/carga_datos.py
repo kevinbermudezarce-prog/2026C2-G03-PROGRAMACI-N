@@ -3,7 +3,7 @@ from pathlib import Path
 import kagglehub
 import pandas as pd
 
-dataset = "aayushmishra1512/twitchdata"
+DATASET = "aayushmishra1512/twitchdata"
 def cargar_datos() -> pd.DataFrame:
     """Descarga y carga el dataset de Kaggle de Top Streamers on Twitch."""
     
@@ -11,8 +11,7 @@ def cargar_datos() -> pd.DataFrame:
     # Descargar el dataset completo
         ruta_descarga = Path(
         kagglehub.dataset_download(
-            dataset,
-            force_download=True
+            DATASET
         )
         )
 
@@ -53,6 +52,6 @@ if __name__ == "__main__":
     if df.empty:
         print("No se pudo cargar los datos.")
     else:
-        print("Datos cargados correctamente:")
+        print("\nPrimeros registros del dataset:")
         print(df.head())
 

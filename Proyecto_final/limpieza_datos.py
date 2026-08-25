@@ -24,15 +24,21 @@ def limpiar_datos(datos):
     datos_limpios.rename(columns=nombres_columnas, inplace=True)
 
     #Conversión de los datos a números
-    datos_limpios["TIEMPO_VISUALIZADO"] = pd.to_numeric(
-        datos_limpios["TIEMPO_VISUALIZADO"],
-        errors="coerce"
-    )
+    columnas_numericas = [
+        "TIEMPO_VISUALIZADO",
+        "TIEMPO_STREAMING",
+        "PICO_VIEWERS",
+        "VIEWERS_PROMEDIO",
+        "SEGUIDORES_TOTALES",
+        "SEGUIDORES_NUEVOS",
+        "VIEWS_OBTENIDAS"
+    ]
 
-    datos_limpios["TIEMPO_STREAMING"] = pd.to_numeric(
-        datos_limpios["TIEMPO_STREAMING"],
-        errors="coerce"
-    )
+    for columna in columnas_numericas:
+        datos_limpios[columna] = pd.to_numeric(
+            datos_limpios[columna],
+            errors="coerce"
+        )
 
     #Eliminación de registros duplicados
     datos_limpios = datos_limpios.drop_duplicates()
