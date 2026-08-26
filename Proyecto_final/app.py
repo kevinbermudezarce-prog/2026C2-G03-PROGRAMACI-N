@@ -182,6 +182,13 @@ def mostrar_grafico(datos):
             plt.xlabel("Canal")
             plt.ylabel("Seguidores")
             plt.xticks(rotation=45)
+            plt.figtext(
+                0.5,
+                0.01,
+                "Fuente: Top Streamers on Twitch - Kaggle",
+                ha="center",
+                fontsize=8
+            )
             plt.tight_layout()
             plt.grid(axis="y", linestyle="--", alpha=0.5)
             for indice, valor in enumerate(ranking["SEGUIDORES_TOTALES"]):
@@ -206,6 +213,13 @@ def mostrar_grafico(datos):
             plt.xlabel("Canal")
             plt.ylabel("Viewers promedio")
             plt.xticks(rotation=45)
+            plt.figtext(
+                0.5,
+                0.01,
+                "Fuente: Top Streamers on Twitch - Kaggle",
+                ha="center",
+                fontsize=8
+            )
             plt.tight_layout()
             plt.grid(axis="y", linestyle="--", alpha=0.5)
             for indice, valor in enumerate(ranking["VIEWERS_PROMEDIO"]):
@@ -238,6 +252,13 @@ def mostrar_grafico(datos):
             plt.xlabel("Tipo de canal")
             plt.ylabel("Cantidad de canales")
             plt.tight_layout()
+            plt.figtext(
+                0.5,
+                0.01,
+                "Fuente: Top Streamers on Twitch - Kaggle",
+                ha="center",
+                fontsize=8
+            )
             plt.grid(axis="y", linestyle="--", alpha=0.5)
             for indice, valor in enumerate(resumen["CANAL"]):
                 plt.text(
